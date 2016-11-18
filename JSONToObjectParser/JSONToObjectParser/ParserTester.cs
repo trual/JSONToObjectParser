@@ -13,12 +13,29 @@ namespace JSONToObjectParser
 
         JsonObject jsonObject = new JsonObject();
 
+
+        /// <summary>
+        ///  test case:
+        /// { "cups" : "big" }
+        /// </summary>
         [TestMethod()]
         public void WhentheParserisPassedaStringtoString()
         {
 
-            jsonObject.JsonParser("meow");
+
+            
+            string testString = "{ \"cups\" : \"big\" }";
+            jsonObject.JsonParser(testString);
             //the object name
+            Console.WriteLine(testString);
+
+           Console.WriteLine(jsonObject.string2string.Count);
+
+            foreach (string key in jsonObject.string2string.Keys)
+            {
+                Console.WriteLine(key);
+            }
+
             Assert.AreEqual("big", jsonObject.string2string["cups"] );
         }
     }
