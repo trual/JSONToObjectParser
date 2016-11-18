@@ -13,7 +13,7 @@ namespace JSONToObjectParser
 
 
         /// { "cups" : "big" }
-        public JsonObject JsonParser(string jsonString)
+        public JsonObject JsonParser(string jsonString, int currentChar)
         {
             JsonObject jsonObject = new JsonObject();
 
@@ -22,11 +22,20 @@ namespace JSONToObjectParser
             string valueString = "";
 
 
-            for (int i = 0; i < jsonString.Length; i++)
+            for (int i = currentChar + 1; i < jsonString.Length; i++)
             {   
                 if (jsonString[i] == '{')
                 {
-                    ///creat a json object
+                    jsonObject = jsonObject.JsonParser(jsonString, i);
+                    for (int j = i; j < jsonString.Length; j++)
+                    {
+                        if (jsonString[j]== '}') {
+                            i = j;
+                            break; 
+
+                        }
+
+                    }
                 }
 
                 if (jsonString[i] == '"' && isValue)
@@ -55,14 +64,19 @@ namespace JSONToObjectParser
                     keyString = "";
                     valueString = "";
                 }
+                if (jsonString[i] == '}')
+                {
+                    if (keyString.Length != 0)
+                    {
+                        jsonObject.string2string.Add(keyString, valueString);
+                    }
+
+                    return jsonObject;
+                }
 
             }
 
-            if (keyString.Length != 0)
-            {
-                jsonObject.string2string.Add(keyString, valueString);
-            }
-
+           
 
             return jsonObject;
             
