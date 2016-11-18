@@ -30,10 +30,11 @@ namespace JSONToObjectParser
                     JsonObject jsonObject1 = new JsonObject();
                     jsonObject1 = jsonObject.JsonParser(jsonString, i);
                     jsonObject.string2Object.Add(keyString, jsonObject1);
+                    keyString = "";
                     for (int j = i; j < jsonString.Length; j++)
                     {
                         if (jsonString[j]== '}') {
-                            i = j;
+                            i = j+1;
                             break; 
 
                         }
