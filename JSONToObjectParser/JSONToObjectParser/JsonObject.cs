@@ -9,7 +9,7 @@ namespace JSONToObjectParser
     public class JsonObject
     {
         public Dictionary<string, string> string2string = new Dictionary<string, string>();
-
+        public Dictionary<string, JsonObject> string2Object = new Dictionary<string, JsonObject>();
 
 
         /// { "cups" : "big" }
@@ -23,10 +23,13 @@ namespace JSONToObjectParser
 
 
             for (int i = currentChar + 1; i < jsonString.Length; i++)
-            {   
-                if (jsonString[i] == '{')
+            {
+                if (jsonString[i] == '{' && i != 0) 
                 {
-                    jsonObject = jsonObject.JsonParser(jsonString, i);
+                    //we have hit an object within an object that is not our first object
+                    JsonObject jsonObject1 = new JsonObject();
+                    jsonObject1 = jsonObject.JsonParser(jsonString, i);
+                    jsonObject.string2Object.Add(keyString, jsonObject1);
                     for (int j = i; j < jsonString.Length; j++)
                     {
                         if (jsonString[j]== '}') {

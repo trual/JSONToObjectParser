@@ -56,5 +56,25 @@ namespace JSONToObjectParser
             Assert.AreEqual("val1", jsonObject.string2string["key1"]);
             Assert.AreEqual("val2", jsonObject.string2string["key2"]);
         }
+
+
+        /// <summary>
+        /// { "obj1" : { "key1" : "val1" } }
+        /// </summary>
+        [TestMethod()]
+        public void WhentheParserisPassedaMultipleObjectWithStringtoString()
+        {
+
+
+
+            string testString = "{ \"obj1\" : { \"key1\" : \"val1\" } }";
+            jsonObject = jsonObject.JsonParser(testString, 0);
+            //the object name
+            Console.WriteLine(testString);
+
+            Console.WriteLine(jsonObject.string2string.Count);
+
+            Assert.AreEqual("val1", jsonObject.string2Object["obj1"].string2string["key1"]);
+        }
     }
 }
