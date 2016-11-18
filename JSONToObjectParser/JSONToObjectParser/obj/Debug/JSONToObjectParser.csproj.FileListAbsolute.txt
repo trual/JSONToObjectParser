@@ -1,1 +1,7 @@
 E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\bin\Debug\JSONToObjectParser.exe.config
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\bin\Debug\JSONToObjectParser.exe
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\bin\Debug\JSONToObjectParser.pdb
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\obj\Debug\JSONToObjectParser.csprojResolveAssemblyReference.cache
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\obj\Debug\JSONToObjectParser.exe
+E:\workspace\JSONToObjectParser\JSONToObjectParser\JSONToObjectParser\obj\Debug\JSONToObjectParser.pdb

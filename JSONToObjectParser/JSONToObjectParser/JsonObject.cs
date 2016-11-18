@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace JSONToObjectParser
 {
-    class JsonObject
+    public class JsonObject
     {
+        public Dictionary<string, string> string2string = new Dictionary<string, string>();
+
+
+        public void JsonParser(string jsonString)
+        {
+            
+
+            string2string.Add("cups", "big");
+           
+        }
     }
+
+  
 }
