@@ -25,7 +25,8 @@ namespace JSONToObjectParser
             {   
 
                 if (jsonString[i] == '"' && isValue)
-                {
+                {   
+                   // we are in a value string
                     valueString = returnString(jsonString, i);
                     i += valueString.Length + 1;
 
@@ -37,18 +38,28 @@ namespace JSONToObjectParser
                     i += keyString.Length + 1;
                 }
                 if (jsonString[i] == ':')
-                {
+                {   
+                    //this marks the begining of a value
                     isValue = true;
                 }
                 if (jsonString[i] == ',')
                 {
+                    //this marks the end of a value pair
                     isValue = false;
+                    string2string.Add(keyString, valueString);
+                    keyString = "";
+                    valueString = "";
                 }
 
             }
+
+            if (keyString.Length != 0)
+            {
+                string2string.Add(keyString, valueString);
+            }
            
 
-            string2string.Add(keyString, valueString);
+            
            
         }
 

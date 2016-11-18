@@ -38,5 +38,23 @@ namespace JSONToObjectParser
 
             Assert.AreEqual("big", jsonObject.string2string["cups"] );
         }
+
+
+        [TestMethod()]
+        public void WhentheParserisPassedaMultipleStringtoString()
+        {
+
+
+
+            string testString = "{ \"key1\" : \"val1\" , \"key2\" : \"val2\" }";
+            jsonObject.JsonParser(testString);
+            //the object name
+            Console.WriteLine(testString);
+
+            Console.WriteLine(jsonObject.string2string.Count);
+
+            Assert.AreEqual("val1", jsonObject.string2string["key1"]);
+            Assert.AreEqual("val2", jsonObject.string2string["key2"]);
+        }
     }
 }
