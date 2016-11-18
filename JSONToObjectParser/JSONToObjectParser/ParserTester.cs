@@ -25,7 +25,7 @@ namespace JSONToObjectParser
 
             
             string testString = "{ \"cups\" : \"big\" }";
-            jsonObject.JsonParser(testString);
+            jsonObject = jsonObject.JsonParser(testString);
             //the object name
             Console.WriteLine(testString);
 
@@ -47,7 +47,7 @@ namespace JSONToObjectParser
 
 
             string testString = "{ \"key1\" : \"val1\" , \"key2\" : \"val2\" }";
-            jsonObject.JsonParser(testString);
+            jsonObject = jsonObject.JsonParser(testString);
             //the object name
             Console.WriteLine(testString);
 
